@@ -1,15 +1,16 @@
 const path = require('path');
 const Encore = require('@symfony/webpack-encore');
-
 const syliusBundles = path.resolve(__dirname, 'vendor/sylius/sylius/src/Sylius/Bundle/');
 const uiBundleScripts = path.resolve(syliusBundles, 'UiBundle/Resources/private/js/');
 const uiBundleResources = path.resolve(syliusBundles, 'UiBundle/Resources/private/');
+
 
 // Shop config
 Encore
   .setOutputPath('public/build/shop/')
   .setPublicPath('/build/shop')
   .addEntry('shop-entry', './assets/shop/entry.js')
+  .addEntry('test', '/assets/shop/test.js')
   .disableSingleRuntimeChunk()
   .cleanupOutputBeforeBuild()
   .enableSourceMaps(!Encore.isProduction())
